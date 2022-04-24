@@ -33,13 +33,17 @@ export const Create = ()=>{
 
     }
 
-    const handleSubmit = ()=>{
+    const handleSubmit = (e)=>{
+
+        e.preventDefault();
+
+      
 
         
 
-        axios.post("https://my-cool-pr.herokuapp.com/houses" , form).then(({datta})=>{
+        axios.post("https://my-cool-pr.herokuapp.com/houses" , form).then(({data})=>{
 
-            console.log(data);
+            alert("Submitted")
 
         
 
@@ -54,7 +58,7 @@ export const Create = ()=>{
 
     return <>
 
-    <form action="" onSubmit={()=> handleSubmit() } >
+    <form action="" onSubmit={(e)=> handleSubmit(e) } >
 
         <h1> Dog House Form </h1>
 
