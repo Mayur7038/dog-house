@@ -35,9 +35,9 @@ export const Create = ()=>{
 
     const handleSubmit = ()=>{
 
-    
+        
 
-        axios.post("http://localhost:5000/Houses" , form).then(({datta})=>{
+        axios.post("https://my-cool-pr.herokuapp.com/houses" , form).then(({datta})=>{
 
             console.log(data);
 
