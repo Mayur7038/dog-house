@@ -9,9 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 const housesController = require("./controller/houses.controller");
+const userController = require("./controller/user.controller");
 
 app.use("/houses" , housesController);
-
+app.use("/user" , userController);
 
 app.listen(5000 , async()=>{
     try{
