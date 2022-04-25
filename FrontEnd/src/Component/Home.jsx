@@ -5,6 +5,7 @@ import { getDataHouse } from "../Redux/Data/action"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import {Loader} from "./Loader"
+
 export const Home = ()=>{
 
 
@@ -12,7 +13,8 @@ export const Home = ()=>{
 
    const {data , loading } = useSelector((store)=> store.houses);
 
-
+   const {user} = useSelector((store)=> store.user)
+   
     useEffect(()=>{
 
         getData()
@@ -100,12 +102,12 @@ export const Home = ()=>{
                         <td> {elem.Cost_per_day} </td>
                         <td> {elem.Verified} </td>
                         <td> {elem.Rating} </td>
-                        <td>   
-                        <Link to={`/listing/create/${elem._id}`} > More Details
-                        </Link>
+                        <td>
+                            { user!==null && user.role === "manager" ? <Link to={`/listing/edit/${elem._id}`}> Edit </Link> : "" }
                         </td>
                         <td>
-                            <Link to={`/listing/edit/${elem._id}`}> Edit </Link>
+                            
+                            <Link to={`/listing/create/${elem._id}`} > More Details</Link>
                         </td>
 
                        

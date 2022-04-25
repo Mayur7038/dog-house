@@ -9,6 +9,10 @@ import Button from '@mui/material/Button';
 export const Edit = ()=>{
 
     const {id} = useParams();
+
+
+   
+
     const [Data,setData] = useState({
         Name : "",
         City : "",
@@ -49,7 +53,6 @@ export const Edit = ()=>{
 
     const handleSubmit = ()=>{
 
-        console.log("hello")
         axios.patch(`http://localhost:5000/houses/${id}` ,Data).then(()=>{
             alert("SucessFully Submitted")
         }).catch((e)=>{

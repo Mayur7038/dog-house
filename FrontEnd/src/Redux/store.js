@@ -1,9 +1,11 @@
 import {applyMiddleware,combineReducers,createStore,compose} from "redux"
 
 import {DataReducer} from "./Data/reducer"
+import {UserReducer} from "./user/reducer"
 
 const rootReducer = combineReducers({
-    houses : DataReducer
+    houses : DataReducer,
+    user : UserReducer
 })
 
 
