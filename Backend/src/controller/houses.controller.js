@@ -21,8 +21,6 @@ router.get("" , async(req,res)=>{
 
 router.get("/:id" , async(req,res)=>{
 
-    console.log(req.params)
-
 
     try{
         const houses = await Houses.findById(req.params.id).lean().exec();
