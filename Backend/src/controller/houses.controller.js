@@ -7,6 +7,8 @@ const Houses = require("../model/houses.model");
 
 router.get("" , async(req,res)=>{
 
+    console.log(req)
+
     try{
         const houses = await Houses.find().lean().exec();
         return res.send(houses);

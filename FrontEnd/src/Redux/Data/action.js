@@ -10,7 +10,7 @@ export const getDataLoading = ()=> ({type : GET_DATA_LOADING} ) ;
 export const getDataHouse = (request)=>  async (dispatch)=>{
     
     dispatch(getDataLoading());
-    const {data} = await axios.get(`https://my-cool-pr.herokuapp.com/houses?${request}`);
+    const {data} = await axios.get(`http://localhost:5000/houses?${request}`);
 
     dispatch(getData(data))
 }
