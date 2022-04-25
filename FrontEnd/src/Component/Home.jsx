@@ -25,7 +25,7 @@ export const Home = ()=>{
     }
     const [Cite , setcite] = useState("");
 
-   
+   let count = 1;
 
     return loading ? <Loader/>  : <>
 
@@ -79,14 +79,19 @@ export const Home = ()=>{
         </thead>
         <tbody>
 
+            
+
             {
+
+            
+                
                 data.map((elem)=>{
 
                    
 
-                    return  <tr key={elem.id}> 
+                    return  <tr key={elem._id}> 
 
-                        <td> {elem.id} </td>
+                        <td> {count++} </td>
                      
                         <td> {elem.Name} </td> 
                         <td> {elem.City} </td>
@@ -96,11 +101,11 @@ export const Home = ()=>{
                         <td> {elem.Verified} </td>
                         <td> {elem.Rating} </td>
                         <td>   
-                        <Link to={`/listing/create/${elem.id}`} > More Details
+                        <Link to={`/listing/create/${elem._id}`} > More Details
                         </Link>
                         </td>
                         <td>
-                            <Link to={`/listing/edit/${elem.id}`}> Edit </Link>
+                            <Link to={`/listing/edit/${elem._id}`}> Edit </Link>
                         </td>
 
                        

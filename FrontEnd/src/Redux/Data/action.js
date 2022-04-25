@@ -14,5 +14,3 @@ export const getDataHouse = (request)=>  async (dispatch)=>{
 
     dispatch(getData(data))
 }
-
-// https://my-cool-pr.herokuapp.com/houses

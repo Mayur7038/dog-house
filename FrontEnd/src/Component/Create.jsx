@@ -16,6 +16,7 @@ export const Create = ()=>{
         Pet_types : "",
         Sleep : "",
         Walks : "",
+        Size : "",
         Type_of_home : "",
         Area_size : "",
         Emergency_transport : ""

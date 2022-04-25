@@ -25,10 +25,11 @@ export const Edit = ()=>{
         Emergency_transport : ""
     });
 
-    //https://my-cool-pr.herokuapp.com/houses
     
     useEffect(()=>{
-        axios.get(`https://my-cool-pr.herokuapp.com/houses/${id}`).then(({data})=>{
+
+       
+        axios.get(`http://localhost:5000/houses/${id}`).then(({data})=>{
             setData(data);
         })
     },[])
@@ -48,7 +49,8 @@ export const Edit = ()=>{
 
     const handleSubmit = ()=>{
 
-        axios.patch(`https://my-cool-pr.herokuapp.com/houses/${id}` ,Data).then(()=>{
+        console.log("hello")
+        axios.patch(`http://localhost:5000/houses/${id}` ,Data).then(()=>{
             alert("SucessFully Submitted")
         }).catch((e)=>{
             console.log(e)
@@ -104,8 +106,6 @@ export const Edit = ()=>{
     <label htmlFor="Emergency_transport"> Emergency_transport </label>
     <input id="Emergency_transport" className="inpt" onChange={(e)=> handleChange(e)} type="text" defaultValue={Data.Emergency_transport} placeholder="Emergency_transport" />
 
-    <label htmlFor="Size">Size </label>
-    <input id="Size" className="inpt" type="text" onChange={(e)=> handleChange(e)} defaultValue={Data.Size} placeholder="Size" />
 
 
        
