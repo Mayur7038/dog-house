@@ -23,8 +23,6 @@ router.get("" , async(req,res)=>{
 
 router.get("/sort/asc" , async(req,res)=>{
 
-
-
     try{
         const houses = await Houses.find().sort({Cost_per_day:1}).lean().exec();
 
@@ -42,6 +40,36 @@ router.get("/sort/desc" , async(req,res)=>{
 
     try{
         const houses = await Houses.find().sort({Cost_per_day:-1}).lean().exec();
+
+        return res.send(houses);
+    }
+    catch(e){
+        return res.send(e.message);
+    }
+
+})
+
+router.get("/sort/rating/asc" , async(req,res)=>{
+
+
+
+    try{
+        const houses = await Houses.find().sort({Rating:1}).lean().exec();
+
+        return res.send(houses);
+    }
+    catch(e){
+        return res.send(e.message);
+    }
+
+})
+
+router.get("/sort/rating/desc" , async(req,res)=>{
+
+
+
+    try{
+        const houses = await Houses.find().sort({Rating:-1}).lean().exec();
 
         return res.send(houses);
     }
