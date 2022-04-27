@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useSelector , useDispatch } from "react-redux"
-import { getDataHouse } from "../Redux/Data/action"
+import { getDataHouse , getCostSort,getRatingSort } from "../Redux/Data/action"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import {Loader} from "./Loader"
@@ -44,21 +44,21 @@ export const Home = ()=>{
         <div> 
             <p> Cost Per Day </p>
 
-            <select className="select"  onChange={(e)=> dispatch(getDataHouse(`_sort=Cost_per_day&_order=${e.target.value}`))  } >
+            <select className="select"  onChange={(e)=> dispatch(getCostSort(e.target.value))  } >
 
                 <option value="">  </option>
                 <option value="desc"  > High To Low </option>
-                <option value="acs"> Low To High </option>
+                <option value="asc"> Low To High </option>
 
             </select>
         </div>
         <div>  
         <p> Ratings </p>
-            <select className="select" name="Ratings" onChange={(e)=> dispatch(getDataHouse(`_sort=Rating&_order=${e.target.value}`))  } >
+            <select className="select" name="Ratings" onChange={(e)=> dispatch(getRatingSort(e.target.value))  } >
 
                 <option value="">  </option>
                 <option value="desc"  > High To Low </option>
-                <option value="acs"> Low To High </option>
+                <option value="asc"> Low To High </option>
 
             </select>
         </div>

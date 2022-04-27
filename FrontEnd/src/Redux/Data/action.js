@@ -14,3 +14,16 @@ export const getDataHouse = (request)=>  async (dispatch)=>{
 
     dispatch(getData(data))
 }
+
+export const  getCostSort=(elem)=> async(dispatch)=> {
+    dispatch(getDataLoading());
+    const {data} = await axios.get(`http://localhost:5000/houses/sort/${elem}`);
+    dispatch(getData(data));
+}
+
+export const  getRatingSort=(elem)=> async(dispatch)=> {
+    dispatch(getDataLoading());
+    const {data} = await axios.get(`http://localhost:5000/houses/sort/rating/${elem}`);
+    dispatch(getData(data));
+}
+
