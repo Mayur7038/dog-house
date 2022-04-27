@@ -11,7 +11,6 @@ router.get("" , async(req,res)=>{
 
     try{
         const houses = await Houses.find(req.query).lean().exec();
-        // const houses = await Houses.find().sort({Cost_per_day:-1}).lean().exec();
 
         return res.send(houses);
     }
