@@ -11,6 +11,38 @@ router.get("" , async(req,res)=>{
 
     try{
         const houses = await Houses.find(req.query).lean().exec();
+        // const houses = await Houses.find().sort({Cost_per_day:-1}).lean().exec();
+
+        return res.send(houses);
+    }
+    catch(e){
+        return res.send(e.message);
+    }
+
+})
+
+router.get("/sort/asc" , async(req,res)=>{
+
+
+
+    try{
+        const houses = await Houses.find().sort({Cost_per_day:1}).lean().exec();
+
+        return res.send(houses);
+    }
+    catch(e){
+        return res.send(e.message);
+    }
+
+})
+
+router.get("/sort/desc" , async(req,res)=>{
+
+
+
+    try{
+        const houses = await Houses.find().sort({Cost_per_day:-1}).lean().exec();
+
         return res.send(houses);
     }
     catch(e){
